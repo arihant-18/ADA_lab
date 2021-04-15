@@ -35,6 +35,7 @@ int main()
 
 
         tower('a','c','b',n);
+        //time complexity is o(n/2)
 
     }
     else if(ch==2)
@@ -44,6 +45,7 @@ int main()
         printf("Enter two Numbers\n");
         scanf("%d %d",&a,&b);
         g=gcd(a,b);
+        //time complexity is o(n^2)
         printf("GCD of the two numbers %d and %d is %d",a,b,g);
     }
     return 0;
