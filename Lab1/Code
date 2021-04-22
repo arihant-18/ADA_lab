@@ -1,0 +1,52 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+void tower(char from_peg,char to_peg,char aux_peg,int n)
+{
+    if(n==1)
+    {
+        printf("move disk 1  from peg %c to peg %c\n",from_peg,to_peg);
+    }
+    else
+    {
+        tower(from_peg,aux_peg,to_peg,n-1);
+        printf("move disk %d from peg %c to peg %c\n",n,from_peg,to_peg);
+        tower(aux_peg,to_peg,from_peg,n-1);
+    }
+}
+int gcd(int a,int b){
+    if(a==0)
+        return b;
+    else if(b==0)
+        return a;
+    return gcd(b,a%b);
+}
+int main()
+{
+    int n,ch;
+    printf("\n1.tower of hanoi\n2.gcd");
+    printf("enter your choice\n");
+    scanf("%d",&ch);
+
+    if(ch==1)
+    {
+        printf("enter the no of pegs\n");
+        scanf("%d",&n);
+
+
+        tower('a','c','b',n);
+        //time complexity is o(n/2)
+
+    }
+    else if(ch==2)
+    {
+        int a,b,g;
+
+        printf("Enter two Numbers\n");
+        scanf("%d %d",&a,&b);
+        g=gcd(a,b);
+        //time complexity is o(n^2)
+        printf("GCD of the two numbers %d and %d is %d",a,b,g);
+    }
+    return 0;
+}
